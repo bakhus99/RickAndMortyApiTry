@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tvPlanetLabelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Name: "
+        />
+
+    <TextView
+        android:id="@+id/tvPlanetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textColor="#A12851"
+        app:layout_constraintStart_toEndOf="@id/tvPlanetLabelName"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvPlanetLabelName"
+        tools:text="Planet"/>
+
+    <TextView
+        android:id="@+id/tvPlanetLabelType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvPlanetLabelName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Type: "
+        />
+
+    <TextView
+        android:id="@+id/tvPlanetType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textColor="#A12851"
+        app:layout_constraintStart_toEndOf="@id/tvPlanetLabelType"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvPlanetLabelType"
+        tools:text="Planet"/>
+
+    <TextView
+        android:id="@+id/tvPlanetLabelDimension"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvPlanetLabelType"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Dimension: "
+        />
+
+    <TextView
+        android:id="@+id/tvPlanetDimension"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textColor="#A12851"
+        app:layout_constraintStart_toEndOf="@id/tvPlanetLabelDimension"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvPlanetLabelDimension"
+        tools:text="Planet"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

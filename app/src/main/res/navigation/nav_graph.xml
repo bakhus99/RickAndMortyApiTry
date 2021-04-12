@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/charactersFragment">
+
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.CharactersFragment"
+        android:label="characters_fragment"
+        tools:layout="@layout/characters_fragment" >
+        <action
+            android:id="@+id/action_charactersFragment_to_detailCharacterFragment"
+            app:destination="@id/detailCharacterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailCharacterFragment"
+        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.DetailCharacterFragment"
+        android:label="fragment_detail_character"
+        tools:layout="@layout/fragment_detail_character" >
+        <argument
+            android:name="character"
+            app:argType="com.exceptioncatchers.rickandmortyapitry.models.Character" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.LocationsFragment"
+        android:label="locations_fragment"
+        tools:layout="@layout/locations_fragment" />
+    <fragment
+        android:id="@+id/serachFragment"
+        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.SerachFragment"
+        android:label="serach_fragment"
+        tools:layout="@layout/serach_fragment" >
+        <action
+            android:id="@+id/action_serachFragment_to_detailCharacterFragment"
+            app:destination="@id/detailCharacterFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.view.DetailCharacterFragment">
+
+    <ImageView
+        android:id="@+id/ivDetailCharacter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvCharacterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelName"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelName"
+        tools:text="Rick" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Name: "
+        android:textColor="@color/black"
+        app:layout_constraintVertical_bias="1"
+        android:textSize="18sp"
+        android:layout_marginStart="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="250dp" />
+
+    <TextView
+        android:id="@+id/tvCharacterSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelSpecies"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelSpecies"
+        tools:text="Human" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Species: "
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterSpecies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterLabelName" />
+
+    <TextView
+        android:id="@+id/tvCharacterStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelStatus"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelStatus"
+        tools:text="Human" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: "
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterLabelSpecies" />
+
+    <TextView
+        android:id="@+id/tvCharacterGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelGender"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelGender"
+        tools:text="Human" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Gender: "
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterGender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterLabelStatus" />
+
+    <TextView
+        android:id="@+id/tvCharacterEpisodes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelEpisodes"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelEpisodes"
+        tools:text="Human" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelEpisodes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Episodes: "
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterEpisodes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterLabelGender" />
+
+    <TextView
+        android:id="@+id/tvCharacterOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelOrigin"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelOrigin"
+        tools:text="Human" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origin: "
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterOrigin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterLabelEpisodes" />
+
+    <TextView
+        android:id="@+id/tvCharacterLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCharacterLabelLocation"
+        app:layout_constraintStart_toEndOf="@id/tvCharacterLabelLocation"
+        tools:text="Human" />
+
+    <TextView
+        android:id="@+id/tvCharacterLabelLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location: "
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharacterLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterLabelOrigin" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
