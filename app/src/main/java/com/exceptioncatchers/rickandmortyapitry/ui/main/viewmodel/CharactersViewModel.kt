@@ -13,16 +13,6 @@ import kotlinx.coroutines.launch
 
 class CharactersViewModel(private val repository: Repository) : ViewModel() {
 
-    var listCharacter = MutableLiveData<List<Character>>()
-    //var character = MutableLiveData<CharacterList>()
-
-//    fun getCharc(page: Int) {
-//        viewModelScope.launch {
-//            val character = repository.getCharacters(page)
-//            listCharacter.value = character.results
-//        }
-//    }
-
     fun getCharacters(page: Int) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
@@ -31,6 +21,4 @@ class CharactersViewModel(private val repository: Repository) : ViewModel() {
             emit(Resource.error(data = null, message = e.message ?: "Error"))
         }
     }
-
-
 }
