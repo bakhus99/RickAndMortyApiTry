@@ -6,4 +6,6 @@
     <string name="species">Species:</string>
     <string name="status">Status:</string>
     <string name="name">Name:</string>
+    <string name="dimension">Dimension:</string>
+    <string name="type">Type:</string>
 </resources>
