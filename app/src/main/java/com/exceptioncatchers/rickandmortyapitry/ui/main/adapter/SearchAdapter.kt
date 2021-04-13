@@ -1,5 +1,6 @@
 package com.exceptioncatchers.rickandmortyapitry.ui.main.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -19,6 +20,17 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
             binding.apply {
                 tvCharacterName.text = character.name
                 tvCharacterSpecies.text = character.species
+                when (character.status) {
+                    "Alive" -> {
+                        tvCharacterStatus.setTextColor(Color.YELLOW)
+                    }
+                    "unknown" -> {
+                        tvCharacterStatus.setTextColor(Color.BLUE)
+                    }
+                    else -> {
+                        tvCharacterStatus.setTextColor(Color.RED)
+                    }
+                }
                 tvCharacterStatus.text = character.status
                 Glide.with(ivCharacter.context).load(character.image)
                     .into(ivCharacter)

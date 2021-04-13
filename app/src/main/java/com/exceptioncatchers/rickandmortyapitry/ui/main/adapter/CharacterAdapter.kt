@@ -1,10 +1,13 @@
 package com.exceptioncatchers.rickandmortyapitry.ui.main.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.toColorInt
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.exceptioncatchers.rickandmortyapitry.R
 import com.exceptioncatchers.rickandmortyapitry.databinding.ChracterItemBinding
 import com.exceptioncatchers.rickandmortyapitry.models.Character
@@ -24,8 +27,20 @@ class CharacterAdapter() :
             binding.apply {
                 tvCharacterName.text = character.name
                 tvCharacterSpecies.text = character.species
-                tvCharacterStatus.text = character.status
+                when (character.status) {
+                    "Alive" -> {
+                        tvCharacterStatus.setTextColor(Color.YELLOW)
+                    }
+                    "unknown" -> {
+                        tvCharacterStatus.setTextColor(Color.BLUE)
+                    }
+                    else -> {
+                        tvCharacterStatus.setTextColor(Color.RED)
+                    }
+                }
+              tvCharacterStatus.text = character.status
                 Glide.with(ivCharacter.context).load(character.image)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .into(ivCharacter)
             }
         }
@@ -40,7 +55,6 @@ class CharacterAdapter() :
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bind(character[position])
-     //   holder.itemView.animation = android.view.animation.AnimationUtils.loadAnimation(holder.itemView.context,R.anim.slide_in)
         holder.itemView.setOnClickListener {
             val action =
                 CharactersFragmentDirections.actionCharactersFragmentToDetailCharacterFragment(

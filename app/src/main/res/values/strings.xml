@@ -5,4 +5,5 @@
     <string name="character_image">Character Image</string>
     <string name="species">Species:</string>
     <string name="status">Status:</string>
+    <string name="name">Name:</string>
 </resources>
