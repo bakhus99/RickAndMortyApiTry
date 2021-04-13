@@ -64,19 +64,6 @@ class CharactersFragment : Fragment() {
         binding.rvCharacter.adapter = adapter
     }
 
-
-//    private fun setupUpdatePages() {
-//        binding.rvCharacter.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-//
-//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-//                super.onScrollStateChanged(recyclerView, newState)
-//                val totalItemCount = recyclerView.layoutManager?.itemCount
-//                if (totalItemCount == recyclerView.layoutManager.)
-//            }
-//
-//        })
-//    }
-
     private fun setupObserves() {
         viewModel.getCharacters(1).observe(viewLifecycleOwner) {
             it?.let { resource ->
@@ -107,6 +94,7 @@ class CharactersFragment : Fragment() {
         adapter.apply {
             addCharacter(character)
             notifyDataSetChanged()
+            binding.rvCharacter.scheduleLayoutAnimation()
         }
     }
 

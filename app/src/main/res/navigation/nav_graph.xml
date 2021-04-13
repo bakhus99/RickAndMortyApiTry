@@ -27,7 +27,11 @@
         android:id="@+id/locationsFragment"
         android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.LocationsFragment"
         android:label="locations_fragment"
-        tools:layout="@layout/locations_fragment" />
+        tools:layout="@layout/locations_fragment" >
+        <action
+            android:id="@+id/action_locationsFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/serachFragment"
         android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.SerachFragment"
@@ -36,5 +40,14 @@
         <action
             android:id="@+id/action_serachFragment_to_detailCharacterFragment"
             app:destination="@id/detailCharacterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationDetailFragment"
+        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.LocationDetailFragment"
+        android:label="fragment_location_detail"
+        tools:layout="@layout/fragment_location_detail" >
+        <argument
+            android:name="location"
+            app:argType="com.exceptioncatchers.rickandmortyapitry.models.LocationData" />
     </fragment>
 </navigation>

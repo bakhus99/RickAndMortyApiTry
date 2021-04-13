@@ -8,6 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#4A4A4A</color>
-    <color name="card_background_color">#F8F6F6</color>
+    <color name="card_background_color">#5bd18d</color>
 
+    //Colors for Bottom NavBar
+    <color name="bottom_nav_selected">#EDDBE7</color>
+    <color name="bottom_nav_inactive">#63696E</color>
+    //Color for BottomNav Text
+    <color name="bottom_nav_selected_text">#000000</color>
+    <color name="bottom_nav_inactive_text">#2867A8</color>
+
+    //917300
 </resources>

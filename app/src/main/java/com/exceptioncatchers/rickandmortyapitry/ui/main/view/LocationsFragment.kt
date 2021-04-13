@@ -92,6 +92,7 @@ class LocationsFragment : Fragment() {
         adapter.apply {
             addLocations(locationData)
             notifyDataSetChanged()
+            binding.rvLocations.scheduleLayoutAnimation()
         }
 
     }

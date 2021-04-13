@@ -131,6 +131,7 @@ class SerachFragment : Fragment() {
         adapter.apply {
             addCharacter(character)
             notifyDataSetChanged()
+            binding.rvSearchCharacter.scheduleLayoutAnimation()
         }
     }
 

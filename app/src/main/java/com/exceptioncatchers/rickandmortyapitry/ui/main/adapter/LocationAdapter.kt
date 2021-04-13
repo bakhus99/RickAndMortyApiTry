@@ -2,9 +2,11 @@ package com.exceptioncatchers.rickandmortyapitry.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.exceptioncatchers.rickandmortyapitry.databinding.LocationItemBinding
 import com.exceptioncatchers.rickandmortyapitry.models.LocationData
+import com.exceptioncatchers.rickandmortyapitry.ui.main.view.LocationsFragmentDirections
 
 class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationsViewHolder>() {
 
@@ -29,6 +31,13 @@ class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationsViewHolder
 
     override fun onBindViewHolder(holder: LocationsViewHolder, position: Int) {
         holder.bind(locationsList[position])
+        holder.itemView.setOnClickListener {
+            val action =
+                LocationsFragmentDirections.actionLocationsFragmentToLocationDetailFragment(
+                    locationsList[position]
+                )
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount() = locationsList.size

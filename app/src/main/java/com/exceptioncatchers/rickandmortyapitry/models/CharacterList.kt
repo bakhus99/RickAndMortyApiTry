@@ -1,6 +1,9 @@
 package com.exceptioncatchers.rickandmortyapitry.models
 
-data class CharacterList(
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
+data class CharacterList(
     val results: List<Character>
-)
+):Parcelable

@@ -9,5 +9,5 @@ data class LocationData(
     val type: String,
     val dimension: String,
     val url: String,
-    val residents:List<String>
+    val residents: List<String>
 ) : Parcelable
