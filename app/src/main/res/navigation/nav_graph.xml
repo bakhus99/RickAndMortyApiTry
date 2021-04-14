@@ -34,11 +34,7 @@
         android:id="@+id/locationsFragment"
         android:name="com.bakhus.rickandmortyapitry.ui.main.view.LocationsFragment"
         android:label="locations_fragment"
-        tools:layout="@layout/locations_fragment" >
-        <action
-            android:id="@+id/action_locationsFragment_to_locationDetailFragment"
-            app:destination="@id/locationDetailFragment" />
-    </fragment>
+        tools:layout="@layout/locations_fragment" />
     <fragment
         android:id="@+id/serachFragment"
         android:name="com.bakhus.rickandmortyapitry.ui.main.view.SerachFragment"
@@ -51,15 +47,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/locationDetailFragment"
-        android:name="com.bakhus.rickandmortyapitry.ui.main.view.LocationDetailFragment"
-        android:label="fragment_location_detail"
-        tools:layout="@layout/fragment_location_detail" >
-        <argument
-            android:name="location"
-            app:argType="com.bakhus.rickandmortyapitry.models.LocationData" />
     </fragment>
     <fragment
         android:id="@+id/easterEggFragment"
