@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.exceptioncatchers.rickandmortyapitry.R
 import com.exceptioncatchers.rickandmortyapitry.databinding.ChracterItemBinding
 import com.exceptioncatchers.rickandmortyapitry.models.Character
 import com.exceptioncatchers.rickandmortyapitry.ui.main.view.SerachFragmentDirections
@@ -33,6 +35,8 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
                 }
                 tvCharacterStatus.text = character.status
                 Glide.with(ivCharacter.context).load(character.image)
+                    .placeholder(R.drawable.placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .into(ivCharacter)
             }
         }

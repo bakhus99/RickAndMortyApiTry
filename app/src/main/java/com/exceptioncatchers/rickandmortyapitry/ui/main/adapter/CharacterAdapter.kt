@@ -40,7 +40,8 @@ class CharacterAdapter() :
                 }
               tvCharacterStatus.text = character.status
                 Glide.with(ivCharacter.context).load(character.image)
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                    .placeholder(R.drawable.placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .into(ivCharacter)
             }
         }

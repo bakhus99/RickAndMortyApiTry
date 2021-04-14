@@ -8,9 +8,9 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.exceptioncatchers.rickandmortyapitry.R
 import com.exceptioncatchers.rickandmortyapitry.api.ApiHelper
 import com.exceptioncatchers.rickandmortyapitry.api.RetrofitBuilder
@@ -43,6 +43,7 @@ class CharactersFragment : Fragment() {
         setupUi()
         setupViewModel()
         setupObserves()
+        easterEgg()
 
     }
 
@@ -95,6 +96,13 @@ class CharactersFragment : Fragment() {
             addCharacter(character)
             notifyDataSetChanged()
             binding.rvCharacter.scheduleLayoutAnimation()
+        }
+    }
+
+    private fun easterEgg() {
+        binding.tvEasterEgg.setOnClickListener {
+            val action = CharactersFragmentDirections.actionCharactersFragmentToEasterEggFragment()
+            findNavController().navigate(action)
         }
     }
 
