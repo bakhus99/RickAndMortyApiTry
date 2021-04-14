@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.CharactersFragment"
+        android:name="com.bakhus.rickandmortyapitry.ui.main.view.CharactersFragment"
         android:label="characters_fragment"
         tools:layout="@layout/characters_fragment" >
         <action
@@ -23,16 +23,16 @@
     </fragment>
     <fragment
         android:id="@+id/detailCharacterFragment"
-        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.DetailCharacterFragment"
+        android:name="com.bakhus.rickandmortyapitry.ui.main.view.DetailCharacterFragment"
         android:label="fragment_detail_character"
         tools:layout="@layout/fragment_detail_character" >
         <argument
             android:name="character"
-            app:argType="com.exceptioncatchers.rickandmortyapitry.models.Character" />
+            app:argType="com.bakhus.rickandmortyapitry.models.Character" />
     </fragment>
     <fragment
         android:id="@+id/locationsFragment"
-        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.LocationsFragment"
+        android:name="com.bakhus.rickandmortyapitry.ui.main.view.LocationsFragment"
         android:label="locations_fragment"
         tools:layout="@layout/locations_fragment" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/serachFragment"
-        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.SerachFragment"
+        android:name="com.bakhus.rickandmortyapitry.ui.main.view.SerachFragment"
         android:label="serach_fragment"
         tools:layout="@layout/serach_fragment" >
         <action
@@ -54,16 +54,16 @@
     </fragment>
     <fragment
         android:id="@+id/locationDetailFragment"
-        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.LocationDetailFragment"
+        android:name="com.bakhus.rickandmortyapitry.ui.main.view.LocationDetailFragment"
         android:label="fragment_location_detail"
         tools:layout="@layout/fragment_location_detail" >
         <argument
             android:name="location"
-            app:argType="com.exceptioncatchers.rickandmortyapitry.models.LocationData" />
+            app:argType="com.bakhus.rickandmortyapitry.models.LocationData" />
     </fragment>
     <fragment
         android:id="@+id/easterEggFragment"
-        android:name="com.exceptioncatchers.rickandmortyapitry.ui.main.view.EasterEggFragment"
+        android:name="com.bakhus.rickandmortyapitry.ui.main.view.EasterEggFragment"
         android:label="fragment_easter_egg"
         tools:layout="@layout/fragment_easter_egg" />
 </navigation>
