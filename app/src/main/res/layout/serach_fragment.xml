@@ -13,6 +13,8 @@
         android:layout_margin="16dp"
         app:queryHint="Enter Character Name"
         app:iconifiedByDefault="false"
+        app:submitBackground="@color/black"
+        app:searchIcon="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/background_search"
         app:layout_constraintStart_toStartOf="parent"
