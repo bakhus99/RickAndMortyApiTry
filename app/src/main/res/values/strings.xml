@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RickAndMortyCharacters</string>
+    <string name="app_name">Data about characters from rick and morty</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="character_image">Character Image</string>
     <string name="species">Species:</string>
