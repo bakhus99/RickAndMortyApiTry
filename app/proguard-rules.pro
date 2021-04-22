@@ -21,3 +21,12 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class com.bakhus.rickandmortyapitry.models.* { *; }
+-keep class com.bakhus.rickandmortyapitry.ui.main.viewmodel.* { *; }
+-keep class com.bakhus.rickandmortyapitry.ui.base.* {*;}
+-keep class com.bakhus.rickandmortyapitry.repostiory.* {*;}
+-keep class com.bakhus.rickandmortyapitry.api.* {*;}
+-keep class com.bakhus.rickandmortyapitry.utils.* {*;}
+-keep class com.bakhus.rickandmortyapitry.ui.main.view.* {*;}
+-keep class com.bakhus.rickandmortyapitry.ui.main.adapter.* {*;}
+-keep class res.layout.*
+-keep class com.bakhus.rickandmortyapitry.* {*;}

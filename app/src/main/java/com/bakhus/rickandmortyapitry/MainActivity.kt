@@ -2,6 +2,7 @@ package com.bakhus.rickandmortyapitry
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.Keep
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
