@@ -1,8 +1,12 @@
 package com.bakhus.rickandmortyapitry.repostiory
 
 import com.bakhus.rickandmortyapitry.api.ApiHelper
+import com.bakhus.rickandmortyapitry.locale.CharacterDatabase
 
-class Repository(private val apiHelper: ApiHelper) {
+class Repository(
+    private val apiHelper: ApiHelper,
+    val db: CharacterDatabase
+) {
 
     suspend fun getCharacters(page: Int) =
         apiHelper.getCharacters(page)
@@ -13,4 +17,5 @@ class Repository(private val apiHelper: ApiHelper) {
     suspend fun getCharacterByName(name: String) =
         apiHelper.getCharacterByName(name)
 
+    fun getCharactersFromBd() = db.characterDao().getAllCharacters()
 }

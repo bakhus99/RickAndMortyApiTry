@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.bakhus.rickandmortyapitry.R
 import com.bakhus.rickandmortyapitry.api.ApiHelper
 import com.bakhus.rickandmortyapitry.api.RetrofitBuilder
@@ -47,6 +48,8 @@ class CharactersFragment : Fragment() {
 
     }
 
+    private fun localeData(){
+    }
 
     private fun setupViewModel() {
         val viewModelfactory = ViewModelFactory(ApiHelper(RetrofitBuilder.api))
