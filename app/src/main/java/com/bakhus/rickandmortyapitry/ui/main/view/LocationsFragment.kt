@@ -8,17 +8,19 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bakhus.rickandmortyapitry.R
 import com.bakhus.rickandmortyapitry.api.ApiHelper
 import com.bakhus.rickandmortyapitry.api.RetrofitBuilder
 import com.bakhus.rickandmortyapitry.databinding.LocationsFragmentBinding
-import com.bakhus.rickandmortyapitry.models.LocationData
 import com.bakhus.rickandmortyapitry.ui.base.LocationsViewModelFactory
 import com.bakhus.rickandmortyapitry.ui.main.adapter.LocationAdapter
 import com.bakhus.rickandmortyapitry.ui.main.viewmodel.LocationsViewModel
 import com.bakhus.rickandmortyapitry.utils.Status
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class LocationsFragment : Fragment() {
 
@@ -27,10 +29,6 @@ class LocationsFragment : Fragment() {
     private lateinit var adapter: LocationAdapter
 
 
-    companion object {
-        fun newInstance() = LocationsFragment()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,8 +36,8 @@ class LocationsFragment : Fragment() {
         return inflater.inflate(R.layout.locations_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupUI()
         setupViewModel()
         setupObservers()
@@ -53,6 +51,8 @@ class LocationsFragment : Fragment() {
 
     private fun setupUI() {
         adapter = LocationAdapter()
+        binding.rvLocations.scheduleLayoutAnimation()
+
         binding.rvLocations.addItemDecoration(
             DividerItemDecoration(
                 binding.rvLocations.context,
@@ -69,8 +69,13 @@ class LocationsFragment : Fragment() {
                     Status.SUCCESS -> {
                         binding.rvLocations.visibility = View.VISIBLE
                         binding.progressBar.visibility = View.GONE
-                        resources.data?.let { data ->
-                            retriveList(data.results)
+                        resources.data?.let {
+                            //  retriveList(data.results)
+                            lifecycleScope.launch {
+                                viewModel.flow.collectLatest { pagingData ->
+                                    adapter.submitData(pagingData)
+                                }
+                            }
                         }
                     }
                     Status.LOADING -> {
@@ -87,13 +92,12 @@ class LocationsFragment : Fragment() {
         }
     }
 
-    private fun retriveList(locationData: List<LocationData>) {
-        adapter.apply {
-            addLocations(locationData)
-            notifyDataSetChanged()
-            binding.rvLocations.scheduleLayoutAnimation()
-        }
-
-    }
+//    private fun retriveList(locationData: List<LocationData>) {
+//        adapter.apply {
+//            addLocations(locationData)
+//            notifyDataSetChanged()
+//            binding.rvLocations.scheduleLayoutAnimation()
+//        }
 
 }
+

@@ -5,9 +5,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object  RetrofitBuilder {
+object RetrofitBuilder {
 
-    val okHttpClient = OkHttpClient().newBuilder()
+    private val okHttpClient = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 

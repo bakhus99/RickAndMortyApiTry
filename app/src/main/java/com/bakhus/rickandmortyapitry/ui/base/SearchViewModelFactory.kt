@@ -7,9 +7,9 @@ import com.bakhus.rickandmortyapitry.locale.CharacterDatabase
 import com.bakhus.rickandmortyapitry.repostiory.Repository
 import com.bakhus.rickandmortyapitry.ui.main.viewmodel.SerachViewModel
 
-class SearchViewModelFactory(private val apiHelper: ApiHelper, val db: CharacterDatabase) :
+class SearchViewModelFactory(private val apiHelper: ApiHelper) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return SerachViewModel(Repository(apiHelper, db)) as T
+        return SerachViewModel(Repository(apiHelper)) as T
     }
 }

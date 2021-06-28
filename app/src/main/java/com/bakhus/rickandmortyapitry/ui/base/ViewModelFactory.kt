@@ -8,12 +8,12 @@ import com.bakhus.rickandmortyapitry.repostiory.Repository
 import com.bakhus.rickandmortyapitry.ui.main.viewmodel.CharactersViewModel
 
 @Suppress("UNCHECKED_CAST")
-class ViewModelFactory(private val apiHelper: ApiHelper, val db: CharacterDatabase) :
+class ViewModelFactory(private val apiHelper: ApiHelper) :
     ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(CharactersViewModel::class.java)) {
-            return CharactersViewModel(Repository(apiHelper, db)) as T
+            return CharactersViewModel(Repository(apiHelper)) as T
         }
         throw IllegalArgumentException("unknowm class name")
     }

@@ -8,6 +8,7 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,12 +22,10 @@ import com.bakhus.rickandmortyapitry.ui.base.ViewModelFactory
 import com.bakhus.rickandmortyapitry.ui.main.adapter.CharacterAdapter
 import com.bakhus.rickandmortyapitry.ui.main.viewmodel.CharactersViewModel
 import com.bakhus.rickandmortyapitry.utils.Status
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class CharactersFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = CharactersFragment()
-    }
 
     private lateinit var viewModel: CharactersViewModel
     private lateinit var adapter: CharacterAdapter
@@ -39,16 +38,13 @@ class CharactersFragment : Fragment() {
         return inflater.inflate(R.layout.characters_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupUi()
         setupViewModel()
         setupObserves()
         easterEgg()
-
-    }
-
-    private fun localeData(){
     }
 
     private fun setupViewModel() {
@@ -75,8 +71,12 @@ class CharactersFragment : Fragment() {
                     Status.SUCCESS -> {
                         binding.rvCharacter.visibility = View.VISIBLE
                         binding.progressBar.visibility = View.GONE
-                        resource.data?.let { data ->
-                            retriveList(data.results)
+                        resource.data?.let {
+                            lifecycleScope.launch {
+                                viewModel.flow.collectLatest { pagingData ->
+                                    adapter.submitData(pagingData)
+                                }
+                            }
                         }
                     }
                     Status.ERROR -> {
@@ -94,13 +94,13 @@ class CharactersFragment : Fragment() {
         }
     }
 
-    private fun retriveList(character: List<Character>) {
-        adapter.apply {
-            addCharacter(character)
-            notifyDataSetChanged()
-            binding.rvCharacter.scheduleLayoutAnimation()
-        }
-    }
+//    private fun retriveList(character: List<Character>) {
+//        adapter.apply {
+//            addCharacter(character)
+//            notifyDataSetChanged()
+//            binding.rvCharacter.scheduleLayoutAnimation()
+//        }
+//    }
 
     private fun easterEgg() {
         binding.tvEasterEgg.setOnClickListener {
